@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Design and Development - Preview</title>
+    <style>
+        /* COMPLETE RESET */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        /* FORCE FULL SCREEN */
+        html, body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        
+        /* CONTROLS BAR - EXACTLY LIKE NICEPAGE */
+        .preview-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 70px;
+            background: #f2f2f2;
+            text-align: center;
+            z-index: 1000;
+            border-bottom: 1px solid #ddd;
+        }
+        
+        /* CENTERED BUTTONS CONTAINER */
+        .preview-buttons {
+            display: inline-block;
+            margin-top: 15px;
+        }
+        
+        /* BUTTON STYLES - EXACT NICEPAGE STYLE WITH LARGER ICONS */
+        .preview-btn {
+            display: inline-block;
+            margin: 0 2px;
+            padding: 6px;
+            text-decoration: none;
+            border-radius: 3px;
+            transition: background 0.2s;
+        }
+        
+        .preview-btn:hover {
+            background: #e2f0fc;
+        }
+        
+        .preview-btn.active {
+            background: #c9e4f9;
+        }
+        
+        .preview-btn img {
+            display: block;
+            width: 28px; /* Increased from 20px to 28px */
+            height: 28px; /* Increased from 20px to 28px */
+        }
+        
+        /* CLOSE BUTTON - RIGHT SIDE */
+        .close-btn {
+            position: absolute;
+            top: 17px;
+            right: 10px;
+            padding: 6px;
+        }
+        
+        .close-btn img {
+            width: 20px; /* Increased from 16px to 20px */
+            height: 20px; /* Increased from 16px to 20px */
+        }
+        
+        /* LOGO CONTAINER - LEFT SIDE */
+        .logo-container {
+            position: absolute;
+            top: 17px;
+            left: 10px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .logo-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            text-decoration: none;
+        }
+        
+        .logo-img {
+            height: 30px; /* Increased from 24px to 30px */
+            width: auto;
+        }
+        
+        .logo-text {
+            color: #333;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+        }
+        
+        /* MAIN CONTENT - CENTERED */
+        .preview-content {
+            position: fixed;
+            top: 70px;
+            left: 0;
+            width: 100vw;
+            height: calc(100vh - 70px);
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            overflow: auto;
+        }
+        
+        /* IFRAME - CENTERED FOR ALL SIZES */
+        #previewFrame {
+            border: none;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+        
+        /* RESPONSIVE SIZES - ALL CENTERED */
+        .size-desktop { 
+            width: 100% !important; 
+            height: 100% !important;
+        }
+        .size-laptop { 
+            width: 1040px !important; 
+            height: 100% !important;
+        }
+        .size-tablet { 
+            width: 820px !important; 
+            height: 100% !important;
+        }
+        .size-phone-h { 
+            width: 640px !important; 
+            height: 100% !important;
+        }
+        .size-phone { 
+            width: 440px !important; 
+            height: 100% !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="logo">
+            <div class="logo-box">NP</div>
+            <span>Nicepage</span>
+        </div>
+    <!-- Logo Container with Image and Text -->
+    <div class="logo-container">
+        <a href="https://nicepage.com" class="logo-link">
+            <img src="https://csite.nicepage.com/Images/logo-w.png" alt="NicePage" class="logo-img">
+            <span class="logo-text">Nicepage</span>
+        </a>
+    </div>
+    
+    <!-- Header with centered buttons -->
+    <div class="preview-header">
+        <div class="preview-buttons">
+            <a class="preview-btn active" href="#" onclick="setFrameSize('size-desktop')">
+                <img src="https://csite.nicepage.com/Images/Site/responsive-desktop.png" alt="Desktop">
+            </a>
+            <a class="preview-btn" href="#" onclick="setFrameSize('size-laptop')">
+                <img src="https://csite.nicepage.com/Images/Site/responsive-laptop.png" alt="Laptop">
+            </a>
+            <a class="preview-btn" href="#" onclick="setFrameSize('size-tablet')">
+                <img src="https://csite.nicepage.com/Images/Site/responsive-tablet.png" alt="Tablet">
+            </a>
+            <a class="preview-btn" href="#" onclick="setFrameSize('size-phone-h')">
+                <img src="https://csite.nicepage.com/Images/Site/responsive-phone-horizontal.png" alt="Phone Horizontal">
+            </a>
+            <a class="preview-btn" href="#" onclick="setFrameSize('size-phone')">
+                <img src="https://csite.nicepage.com/Images/Site/responsive-phone.png" alt="Phone">
+            </a>
+        </div>
+        
+        <!-- Close button -->
+        <a class="close-btn" href="https://nicepage.com/html-templates/preview/design-and-development-process-3080822">
+            <img src="https://csite.nicepage.com/Images/Site/icon-close.png" alt="Close">
+        </a>
+    </div>
+    
+    <!-- Content Area -->
+    <div class="preview-content">
+        <iframe id="previewFrame" 
+                src="https://website3057676.nicepage.io/Page-6.html?version=3b814086-6ec6-44ec-b744-f05068dbf9ae"
+                class="size-desktop">
+        </iframe>
+    </div>
+
+    <script>
+        // JavaScript to handle frame sizing
+        function setFrameSize(sizeClass) {
+            const frame = document.getElementById('previewFrame');
+            const buttons = document.querySelectorAll('.preview-btn');
+            
+            // Remove active class from all buttons
+            buttons.forEach(btn => btn.classList.remove('active'));
+            
+            // Add active class to clicked button
+            event.target.classList.add('active');
+            
+            // Remove all size classes
+            frame.classList.remove('size-desktop', 'size-laptop', 'size-tablet', 'size-phone-h', 'size-phone');
+            
+            // Add new size class
+            frame.classList.add(sizeClass);
+        }
+        
+        // Ensure proper sizing
+        window.addEventListener('load', function() {
+            document.getElementById('previewFrame').style.height = '100%';
+        });
+        
+        window.addEventListener('resize', function() {
+            document.getElementById('previewFrame').style.height = '100%';
+        });
+    </script>
+</body>
+</html>

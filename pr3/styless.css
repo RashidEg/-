@@ -1,0 +1,262 @@
+/* COMPLETE RESET */
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+
+html, body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background: #1a1a1a;
+}
+
+/* PREVIEW CONTROLS - TOP BAR */
+.preview-controls {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    background: #2d2d2d;
+    border-bottom: 1px solid #404040;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.controls-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 20px;
+}
+
+/* DEVICE BUTTONS */
+.device-buttons {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.device-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 8px 12px;
+    text-decoration: none;
+    color: #b0b0b0;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: 1px solid transparent;
+    min-width: 70px;
+}
+
+.device-btn:hover {
+    background: #404040;
+    color: #ffffff;
+    border-color: #555;
+}
+
+.device-btn.active {
+    background: #007acc;
+    color: #ffffff;
+    border-color: #0090ff;
+}
+
+.device-btn svg {
+    margin-bottom: 4px;
+    opacity: 0.8;
+}
+
+.device-btn.active svg {
+    opacity: 1;
+}
+
+.device-btn span {
+    font-size: 11px;
+    font-weight: 500;
+    line-height: 1;
+}
+
+/* CLOSE BUTTON */
+.control-actions {
+    display: flex;
+    align-items: center;
+}
+
+.close-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px;
+    text-decoration: none;
+    color: #b0b0b0;
+    border-radius: 6px;
+    transition: all 0.2s ease;
+    background: transparent;
+    border: 1px solid #555;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.close-btn:hover {
+    background: #404040;
+    color: #ffffff;
+    border-color: #777;
+}
+
+.close-btn svg {
+    opacity: 0.8;
+}
+
+/* LOGO */
+.logo-container {
+    position: fixed;
+    top: 18px;
+    left: 20px;
+    z-index: 1001;
+}
+
+.logo-link {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+/* MAIN CONTENT - TAKES FULL SCREEN */
+.preview-content {
+    position: fixed;
+    top: 60px; /* Height of controls */
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: #f0f0f0;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    overflow: auto;
+}
+
+/* IFRAME STYLES */
+#livePreviewFrame {
+    border: none;
+    background: white;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+/* DIFFERENT SCREEN SIZES */
+.frame-desktop {
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.frame-laptop {
+    width: 1040px !important;
+    min-height: 100% !important;
+    margin: 20px 0;
+}
+
+.frame-tablet {
+    width: 820px !important;
+    min-height: 100% !important;
+    margin: 20px 0;
+}
+
+.frame-phone-horizontal {
+    width: 640px !important;
+    min-height: 100% !important;
+    margin: 20px 0;
+}
+
+.frame-phone {
+    width: 440px !important;
+    min-height: 100% !important;
+    margin: 20px 0;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 768px) {
+    .preview-controls {
+        height: 50px;
+    }
+    
+    .controls-container {
+        padding: 0 10px;
+    }
+    
+    .device-btn {
+        padding: 6px 8px;
+        min-width: 60px;
+    }
+    
+    .device-btn span {
+        font-size: 10px;
+    }
+    
+    .device-btn svg {
+        width: 16px;
+        height: 16px;
+    }
+    
+    .close-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .logo-container {
+        top: 15px;
+        left: 10px;
+    }
+    
+    .preview-content {
+        top: 50px;
+    }
+    
+    .frame-laptop,
+    .frame-tablet,
+    .frame-phone-horizontal,
+    .frame-phone {
+        width: 95% !important;
+        margin: 10px 0;
+    }
+}
+
+/* SCROLLBAR STYLING */
+.preview-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.preview-content::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.preview-content::-webkit-scrollbar-thumb {
+    background: #c1c1c1;
+    border-radius: 4px;
+}
+
+.preview-content::-webkit-scrollbar-thumb:hover {
+    background: #a8a8a8;
+}
+
+/* ENSURE NO WHITE SPACES */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #1a1a1a;
+    z-index: -1;
+}
