@@ -1,0 +1,7 @@
+"Epic","Feature","Story","FAILED","BROKEN","PASSED","SKIPPED","UNKNOWN"
+"","User Management","Create user","0","0","2","0","0"
+"","Store Management","Place an order","0","0","2","0","0"
+"","Store Management","Get order by ID","0","0","2","0","0"
+"","Pet Management","Get pet by ID","0","0","2","0","0"
+"","User Management","Get user by username","0","0","2","0","0"
+"","Pet Management","Create a new pet","0","0","2","0","0"
